@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- container Started -->
+	<div class="container">
+
+		<!-- Card Started -->
+		<div class="card">
+
+			<!-- card header -->
+			<div class="card-header text-center text-white bg-primary">
+				<h1>WELCOME TO SHIPMENT TYPE REGISTRATION PAGE</h1>
+			</div>
+			<!-- Card header end -->
+
+			<!-- card body started -->
+			<div class="card-body">
+				<form th:action="@{/st/save}" method="POST">
+
+					<!-- Shipment mode row Started -->
+					<div class="row">
+						<div class="col-3">
+							<label for="shipmentMode">Shipment Mode</label>
+						</div>
+						<div class="col-4">
+							<select name="shipmentMode" id="shipmentMode"
+								class="form-control">
+								<option value="">--SELECT--</option>
+								<option value="Air">AIR</option>
+								<option value="Truck">TRUCK</option>
+								<option value="Ship">SHIP</option>
+								<option value="Train">TRAIN</option>
+							</select>
+						</div>
+						<div class="col-5">
+							<span id="shipmentModeError"></span>
+						</div>
+					</div>
+					<br>
+					<!-- Shipment mode row end -->
+
+					<!-- Shipment code row Started -->
+					<div class="row">
+						<div class="col-3">
+							<label for="shipmentCode">Shipment Code</label>
+						</div>
+						<div class="col-4">
+							<input type="text" name="shipmentCode" id="shipmentCode"
+								class="form-control">
+						</div>
+						<div class="col-5">
+							<span id="shipmentCodeError"></span>
+						</div>
+					</div>
+					<br>
+					<!-- Shipment code row end -->
+
+					<!-- Enable shipment row Started -->
+					<div class="row">
+						<div class="col-3">
+							<label for="enableShipment">Enable Shipment</label>
+						</div>
+						<div class="col-4">
+							<input type="radio" name="enableShipment" id="enableShipmentYes"
+								value="yes">YES <input type="radio"
+								name="enableShipment" id="enableShipmentNo" value="No">NO
+						</div>
+						<div class="col-5">
+							<span id="enableShipmentError"></span>
+						</div>
+					</div>
+					<br>
+					<!-- Enable shipment row end -->
+
+					<!-- Shipment grade row Started -->
+					<div class="row">
+						<div class="col-3">
+							<label for="shipmentGrade">Shipment Grade</label>
+						</div>
+						<div class="col-4">
+							<input type="radio" name="shipmentGrade" id="shipmentGradeA"
+								value="A">A <input type="radio" name="shipmentGrade"
+								id="shipmentGradeB" value="B">B <input type="radio"
+								name="shipmentGrade" id="shipmentGradeC" value="C">C
+						</div>
+						<div class="col-5">
+							<span id="shipmentGradeError"></span>
+						</div>
+					</div>
+					<br>
+					<!-- SShipment grade row end -->
+
+					<!-- Shipment grade row Started -->
+					<div class="row">
+						<div class="col-3">
+							<label for="shipmentDescription">Description</label>
+						</div>
+						<div class="col-4">
+							<textarea name="shipmentDescription" id="shipmentDescription"
+								class="form-control"></textarea>
+						</div>
+						<div class="col-5">
+							<span id="shipmentDescriptionError"></span>
+						</div>
+					</div>
+					<br>
+					<!-- SShipment grade row end -->
+
+					<!-- button row Started -->
+					<div class="row">
+						<div class=col-3></div>
+						<div class="col-4">
+							<input type="submit" value="Add Shipment Type"
+								class="btn btn-success">
+						</div>
+						<div class="col-5"></div>
+					</div>
+					<!-- button row end -->
+
+				</form>
+			</div>
+			<!-- Card body end -->
+
+			<!-- card footer started -->
+			<div class="card-footer lert alert-success" th:if="${message!=null}">
+				<span th:text="${message}" ></span>
+			</div>
+			<!-- card footer end -->
+
+		</div>
+		<!-- Card end -->
+
+	</div>
+	<!-- container end -->
+</body>
+</html>
