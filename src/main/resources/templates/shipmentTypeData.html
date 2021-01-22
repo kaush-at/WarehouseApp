@@ -45,7 +45,7 @@
 							<td th:text=${ob.enableShipment}></td>
 							<td th:text=${ob.shipmentGrade}></td>
 							<td th:text=${ob.shipmentDescription}></td>
-							<td><a href="" class="btn btn-info">EDIT</a> | <a href="#" class="btn btn-danger">DELETE</a></td>
+							<td><a href="" class="btn btn-info">EDIT</a> | <a th:href="@{/st/delete(id=${ob.id})}" class="btn btn-danger">DELETE</a></td>
 						</tr>
 
 					</tbody>
@@ -55,9 +55,13 @@
 			<!-- card body ended -->
 			
 			<!-- Card footer started -->
-			<div class="cart-footer">
-				
+			<div class="cart-footer alert alert-success" th:if="${message != null}">
+				<span th:text="${message}"></span>
 			</div>
+			<div class="cart-footer alert alert-danger" th:if="${errMessage != null}">
+				<span th:text="${errMessage}"></span>
+			</div>
+			
 			<!--  card footer ended -->
 
 		</div>

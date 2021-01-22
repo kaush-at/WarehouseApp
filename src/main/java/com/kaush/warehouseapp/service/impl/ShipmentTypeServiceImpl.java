@@ -26,4 +26,14 @@ public class ShipmentTypeServiceImpl implements IShipmentTypeService {
 		List<ShipmentType> shipmentTypes = shipTypeRepo.findAll();
 		return shipmentTypes;
 	}
+
+	@Override
+	public boolean isShipTypeexistsById(Integer id) {
+		return shipTypeRepo.existsById(id);
+	}
+	
+	@Override
+	public void deleteShipmentTypeById(Integer id) {
+		shipTypeRepo.deleteById(id);		
+	}
 }
