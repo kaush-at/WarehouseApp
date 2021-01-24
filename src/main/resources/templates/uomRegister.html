@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>UOM Register</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
 </head>
 <body>
 
@@ -13,7 +17,7 @@
 		<div class="card">
 
 			<!--  card header started -->
-			<div class="card-header">
+			<div class="card-header text-center bg-primary text-white">
 				<h3>UOM REGISTER PAGE</h3>
 			</div>
 			<!--  card header end -->
@@ -21,65 +25,68 @@
 			<!-- Card body Started -->
 			<div class="card-body">
 
-				<form th:action = "@{/uom/register}" method="post">
-				<!-- Uom type row started -->
-				<div class="row">
-					<div class="col-3">
-						<label for="uomType">Uom Type</label>
+				<form th:action="@{/uom/register}" method="post">
+					<!-- Uom type row started -->
+					<div class="row">
+						<div class="col-3">
+							<label for="uomType">Uom Type</label>
+						</div>
+						<div class="col-4">
+							<select name="uomType" id="uomType" class="form-control">
+								<option value="">-- SELECT --</option>
+								<option value="Parking">PARKING</option>
+								<option value="NoParking">NO PARKING</option>
+								<option value="Na">-NA-</option>
+							</select>
+						</div>
+						<div class="col-5">
+							<span id="uomTypeError"></span>
+						</div>
 					</div>
-					<div class="col-4">
-						<select name="uomType" id="uomType" class="form-control">
-							<option value="">-- SELECT --</option>
-							<option value="Parking">PARKING</option>
-							<option value="NoParking">NO PARKING</option>
-							<option value="Na">-NA-</option>
-						</select>
-					</div>
-					<div class="col-5">
-						<span id="uomTypeError"></span>
-					</div>
-				</div>
-				<!-- Uom type row end -->
+					<br>
+					<!-- Uom type row end -->
 
-				<!-- Uom Model row started -->
-				<div class="row">
-					<div class="col-3">
-						<label for="uomModel">Uom Model</label>
+					<!-- Uom Model row started -->
+					<div class="row">
+						<div class="col-3">
+							<label for="uomModel">Uom Model</label>
+						</div>
+						<div class="col-4">
+							<input type="text" name="uomModel" id="uomModel"
+								class="form-control">
+						</div>
+						<div class="col-5">
+							<span id="uomModelError"></span>
+						</div>
 					</div>
-					<div class="col-4">
-						<input type="text" name="uomModel" id="uomModel"
-							class="form-control">
-					</div>
-					<div class="col-5">
-						<span id="uomModelError"></span>
-					</div>
-				</div>
-				<!-- Uom Model row end -->
+					<br>
+					<!-- Uom Model row end -->
 
-				<!-- Uom Description row started -->
-				<div class="row">
-					<div class="col-3">
-						<label for="uomDescription">Description</label>
+					<!-- Uom Description row started -->
+					<div class="row">
+						<div class="col-3">
+							<label for="uomDescription">Description</label>
+						</div>
+						<div class="col-4">
+							<textarea name="uomDescription" id="uomDescription"
+								class="form-control"></textarea>
+						</div>
+						<div class="col-5">
+							<span id="uomDescriptionError"></span>
+						</div>
 					</div>
-					<div class="col-4">
-						<textarea name="uomDescription" id="uomDescription"
-							class="form-control"></textarea>
-					</div>
-					<div class="col-5">
-						<span id="uomDescriptionError"></span>
-					</div>
-				</div>
-				<!-- Uom Description row end -->
+					<br>
+					<!-- Uom Description row end -->
 
-				<!-- Uom button row started -->
-				<div class="row">
-					<div class="col-3"></div>
-					<div class="col-4">
-						<input type="submit" value="Create UOM" class="btn btn-success">
+					<!-- Uom button row started -->
+					<div class="row">
+						<div class="col-3"></div>
+						<div class="col-4">
+							<input type="submit" value="Create UOM" class="btn btn-success">
+						</div>
+						<div class="col-5"></div>
 					</div>
-					<div class="col-5"></div>
-				</div>
-				<!-- Uom button row end -->
+					<!-- Uom button row end -->
 
 				</form>
 			</div>
@@ -92,6 +99,6 @@
 
 	</div>
 	<!-- Container end -->
-	
+
 </body>
 </html>
