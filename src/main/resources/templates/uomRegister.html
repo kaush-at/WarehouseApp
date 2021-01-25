@@ -89,8 +89,15 @@
 					<!-- Uom button row end -->
 
 				</form>
+
 			</div>
 			<!-- Card body end -->
+
+			<!-- Card footer end -->
+			<div class="card-footer lert alert-success" th:if="${uomId != null}">
+				<span th:text="${uomId}"></span>
+			</div>
+			<!-- Card footer end -->
 
 		</div>
 		<!-- Card end -->
