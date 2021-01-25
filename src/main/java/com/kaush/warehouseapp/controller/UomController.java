@@ -23,7 +23,7 @@ public class UomController {
 		return "uomRegister";
 	}
 	
-	@PostMapping
+	@PostMapping("/save")
 	public String saveUom(@ModelAttribute Uom uom, Model model) {
 		
 		uomService.saveUom(uom);
