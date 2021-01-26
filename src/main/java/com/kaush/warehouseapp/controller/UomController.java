@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kaush.warehouseapp.model.Uom;
 import com.kaush.warehouseapp.service.IUomService;
@@ -36,6 +37,21 @@ public class UomController {
 	public String getAllUom(Model model) {
 		List<Uom> uomList  = uomService.getAllUoms();
 		model.addAttribute("uomList", uomList);
+		return "uomData";
+	}
+	
+	@GetMapping("/delete")
+	public String deleteUomById(@RequestParam("id") Integer uId, Model model) {
+		
+		boolean uomExistById = uomService.isUomExistById(uId);
+		if(uomExistById) {
+			uomService.deleteUomById(uId);
+			model.addAttribute("message", "Uom " + uId + " deleted");
+		}else {
+			model.addAttribute("ErrMessage", "Uom " + uId + " cannot found");
+		}
+		
+		model.addAttribute("uomList", uomService.getAllUoms());
 		return "uomData";
 	}
 	

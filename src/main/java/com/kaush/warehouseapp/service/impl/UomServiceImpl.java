@@ -27,4 +27,14 @@ public class UomServiceImpl implements IUomService {
 		return uomList;
 	}
 
+	@Override
+	public boolean isUomExistById(Integer id) {
+		return uomRepo.existsById(id);
+	}
+
+	@Override
+	public void deleteUomById(Integer id) {
+		uomRepo.deleteById(id);
+	}
+
 }

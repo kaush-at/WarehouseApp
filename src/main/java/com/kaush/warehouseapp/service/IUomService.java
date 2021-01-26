@@ -9,5 +9,9 @@ public interface IUomService {
 	Integer saveUom(Uom uom);
 
 	List<Uom> getAllUoms();
+	
+	boolean isUomExistById(Integer id);
+	
+	void deleteUomById(Integer id);
 
 }

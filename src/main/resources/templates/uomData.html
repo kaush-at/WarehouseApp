@@ -29,26 +29,34 @@
 							<th>TYPE</th>
 							<th>MODEL</th>
 							<th>DESCRIPTION</th>
+							<th>OPERATION</th>
 						</tr>
 					</thead>
-					
+
 					<tbody>
 						<tr th:each=ob:${uomList}>
 							<td th:text=${ob.id}></td>
-							<td th:text=${ob.uomType} ></td>
+							<td th:text=${ob.uomType}></td>
 							<td th:text=${ob.uomModel}></td>
 							<td th:text=${ob.uomDescription}></td>
+							<td><a th:href="@{/uom/delete(id=${ob.id})}"
+								class="btn btn-danger">Delete</a> | <a href=""
+								class="btn btn-info">Edit</a></td>
 						</tr>
 					</tbody>
-				
+
 				</table>
 			</div>
 			<!-- Card body end -->
 
 			<!-- Card footer started -->
-			<div class="card-footer" th:if="${message != null}">
+			<div class="card-footer alert alert-success" th:if="${message != null}">
 				<span th:text="${message}"></span>
 			</div>
+			<div class="card-footer alert alert-danger" th:if="${ErrMessage != null}">
+				<span th:text="${ErrMessage}"></span>
+			</div>
+
 			<!-- Card footer end -->
 
 		</div>
