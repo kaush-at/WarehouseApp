@@ -55,4 +55,10 @@ public class UomController {
 		return "uomData";
 	}
 	
+	@GetMapping("/edit")
+	public String editUom(@RequestParam("id") Integer uomId) {
+		
+		return "uomData";
+	}
+	
 }

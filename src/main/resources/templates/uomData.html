@@ -40,8 +40,8 @@
 							<td th:text=${ob.uomModel}></td>
 							<td th:text=${ob.uomDescription}></td>
 							<td><a th:href="@{/uom/delete(id=${ob.id})}"
-								class="btn btn-danger">Delete</a> | <a href=""
-								class="btn btn-info">Edit</a></td>
+								class="btn btn-danger">Delete</a> | <a
+								th:href="@{/uom/edit(id=${ob.id})}" class="btn btn-info">Edit</a></td>
 						</tr>
 					</tbody>
 
@@ -50,10 +50,12 @@
 			<!-- Card body end -->
 
 			<!-- Card footer started -->
-			<div class="card-footer alert alert-success" th:if="${message != null}">
+			<div class="card-footer alert alert-success"
+				th:if="${message != null}">
 				<span th:text="${message}"></span>
 			</div>
-			<div class="card-footer alert alert-danger" th:if="${ErrMessage != null}">
+			<div class="card-footer alert alert-danger"
+				th:if="${ErrMessage != null}">
 				<span th:text="${ErrMessage}"></span>
 			</div>
 
