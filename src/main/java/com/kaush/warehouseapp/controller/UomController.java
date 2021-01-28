@@ -1,6 +1,7 @@
 package com.kaush.warehouseapp.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,9 +57,33 @@ public class UomController {
 	}
 	
 	@GetMapping("/edit")
-	public String editUom(@RequestParam("id") Integer uomId) {
+	public String editUom(@RequestParam("id") Integer uomId, Model model) {
+		
+		String page = null;
+		
+		Optional<Uom> uom = uomService.findUomById(uomId);
+		if(uom.isPresent()) {
+			model.addAttribute("uom", uom.get());
+			page = "uomEdit";
+		}else {
+			model.addAttribute("ErrMessage", "Uom not found by id :"+uomId);
+			page =  "uomData";
+		}
+		
+		return page;
+	}
+	
+	@PostMapping("/update")
+	public String doUpdateUom(@ModelAttribute Uom uom, Model model) {
+		
+		Integer updatedId = uomService.updateUom(uom);
+		model.addAttribute("message", "Uom "+updatedId+" updated..!");
+		
+		List<Uom> uomList = uomService.getAllUoms();
+		model.addAttribute("uomList", uomList);
 		
 		return "uomData";
+		
 	}
 	
 }
